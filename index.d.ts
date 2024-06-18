@@ -1,8 +1,10 @@
 /// <reference types="node" />
 /// <reference types="redis" />
+/// <reference types="ioredis" />
 
-import {EventEmitter} from 'events';
-import {ClientOpts, RedisClient} from 'redis';
+import type {EventEmitter} from 'events';
+import type {ClientOpts as NodeRedisOptions, RedisClient as NodeRedisClient} from 'redis';
+import type { Redis as IORedisClient, RedisOptions as IORedisOptions, Cluster as IORedisCluster, ClusterOptions as IORedisClusterOptions } from 'ioredis';
 
 declare class BeeQueue<T = any> extends EventEmitter {
   name: string;
@@ -91,7 +93,7 @@ declare namespace BeeQueue {
     stallInterval?: number;
     nearTermWindow?: number;
     delayedDebounce?: number;
-    redis?: ClientOpts | RedisClient;
+    redis?: NodeRedisOptions | IORedisOptions | IORedisClusterOptions | NodeRedisClient | IORedisClient | IORedisCluster;
     isWorker?: boolean;
     getEvents?: boolean;
     sendEvents?: boolean;
