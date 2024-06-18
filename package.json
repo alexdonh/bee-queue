@@ -5,8 +5,7 @@
   "main": "index.js",
   "dependencies": {
     "p-finally": "^2.0.0",
-    "promise-callbacks": "^3.8.1",
-    "redis": "^3.1.2"
+    "promise-callbacks": "^3.8.1"
   },
   "devDependencies": {
     "@commitlint/cli": "^19.0.3",
@@ -32,6 +31,10 @@
     "semver": "^7.2.1",
     "sinon": "^17.0.0"
   },
+  "optionalDependencies": {
+    "ioredis": "^5.4.1",
+    "redis": "^3.1.2"
+  },
   "files": [
     "HISTORY.md",
     "README.md",
@@ -47,7 +50,7 @@
     "ci:coverage": "if [ -z \"$CI\" ]; then npm run coverage; else npm run coverage-and-report; fi",
     "coverage-and-report": "npm run coverage && mkdir -p coverage && nyc report --reporter=text-lcov > coverage/lcov.info",
     "coverage": "nyc ava",
-    "lint": "eslint . && prettier --check '**/*.(html|json|md|sublime-project|ts|yml)'",
+    "lint": "eslint . --fix && prettier --check '**/*.(html|json|md|sublime-project|ts|yml)'",
     "report": "npm run coverage && nyc report --reporter=html",
     "test": "npm run lint && ava"
   },
