@@ -18,6 +18,7 @@
     "@semantic-release/npm": "^12.0.0",
     "@semantic-release/release-notes-generator": "^13.0.0",
     "@sinonjs/fake-timers": "^11.2.2",
+    "@types/redis": "^2.8.32",
     "ava": "^5.1.0",
     "ava-spec": "^1.1.0",
     "conventional-changelog-conventionalcommits": "^7.0.1",
